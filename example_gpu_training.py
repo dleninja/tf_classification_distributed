@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import tensorflow as tf
 #
 from tensorflow.keras.applications import EfficientNetV2S
@@ -13,10 +10,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import CategoricalCrossentropy
 #
 import numpy as np
-
-
-# In[2]:
-
 
 nsize = 32
 batch_size = 32
@@ -36,10 +29,6 @@ x_test = x_test.astype('float32') / 255
 x_test = tf.image.resize(x_test, [nsize,nsize])
 #
 y_test = tf.keras.utils.to_categorical(y_test, num_classes = 10)
-
-
-# In[3]:
-
 
 strategy = tf.distribute.MirroredStrategy()
 print("Number of devices: {}".format(strategy.num_replicas_in_sync))
@@ -80,4 +69,3 @@ with strategy.scope():
     )
 
 model.fit(x_train, y_train, epochs=1)
-
