@@ -13,3 +13,6 @@ TensorFlow supports several strategies for distributed training, including the m
 The mirror distribution strategy is particularly useful for deep learning models that require a significant amount of computation and memory. By using multiple devices, you can distribute the computation and memory usage across the available resources, reducing the training time and memory requirements for each device. However, it's important to carefully configure the strategy and tune the hyperparameters to achieve good performance and avoid issues such as communication bottlenecks or device synchronization problems.
 
 Overall, the mirror distribution strategy in TensorFlow can be a powerful tool for scaling up machine learning models and achieving better performance and efficiency in distributed training.
+
+## tf.distribute.MirroredStrategy
+
