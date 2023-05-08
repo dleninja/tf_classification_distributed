@@ -28,6 +28,14 @@ In model parallelism, a single model is divided across multiple devices, and eac
 
 For example, let's say we have a large neural network with millions of parameters, and we want to train it on a single GPU. However, the model is too large to fit in the GPU's memory. We could use model parallelism to split the model across multiple GPUs, with each GPU responsible for computing a different part of the model's output. The outputs from all GPUs would then be combined to produce the final output.
 
+<p align="center">
+<img src="https://github.com/dleninja/tf_classification_distributed/blob/main/misc/example_parallelism.png" alt="Alt text" width="600" height="310">
+</p>
+
+<p align="left">
+<em> Illustration of differences between data and model parallelism. As the name suggests, in data parallelism, the model is replicated on multiple devices, e.g., GPUs, and training on different batches of image samples are computed. Whereas in model parallelism, the model is partitioned onto multiple devices, e.g., GPUs [1].</em>
+</p>
+
 #### Note:
 
 At the time of this repository, Tensorflow only supports data parallelism, however Tensorflow has plans to implement model parallelism in the future.
@@ -54,5 +62,7 @@ model.fit(x_train, y_train, epochs=10, batch_size=32) # train the model
 In this repository, I will demonstrate an example of using the `tf.distribute.MirroredStrategy` for a classification model using the MNIST dataset available through TensorFlow.
 
 ## Useful links:
-* https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy
 
+## References/Links
+* [1] https://docs.chainer.org/en/v7.8.0/chainermn/model_parallel/overview.html#model-parallelism
+* https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy
