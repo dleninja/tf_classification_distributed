@@ -16,3 +16,8 @@ Overall, the mirror distribution strategy in TensorFlow can be a powerful tool f
 
 ## tf.distribute.MirroredStrategy
 
+The tf.distribute.MirroredStrategy function is a TensorFlow API for synchronous distributed training. It allows you to distribute the training of a TensorFlow model across multiple GPUs or machines, improving performance and reducing the time required to train large models.
+
+The basic idea of the `MirroredStrategy` is to replicate the model across multiple devices, such as GPUs or machines, and divide the data into multiple batches. Each device trains on a separate batch of the data and updates its own copy of the model parameters. Once all devices have finished training on their respective batches, the updates are collected, averaged, and applied to all copies of the model. This process is repeated for each batch of data until the entire dataset has been processed.
+
+In this repository, I will demonstrate an example of using the `tf.distribute.MirroredStrategy` for a classification model using the MNIST dataset available through TensorFlow.
